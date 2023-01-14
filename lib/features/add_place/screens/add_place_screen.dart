@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greatplaces/features/add_place/widgets/image_input.dart';
 
 class AddPlaceScreen extends StatefulWidget 
 {
@@ -8,7 +9,10 @@ class AddPlaceScreen extends StatefulWidget
   State<AddPlaceScreen> createState() => _AddPlaceScreenState();
 }
 
-class _AddPlaceScreenState extends State<AddPlaceScreen> {
+class _AddPlaceScreenState extends State<AddPlaceScreen> 
+{
+
+  final _titleController=TextEditingController();
   @override
   Widget build(BuildContext context) 
   {
@@ -29,12 +33,28 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
           [
             Expanded
             (
-              child: Column
+              child: SingleChildScrollView
               (
-                children: 
-                [
-                  
-                ],
+                child: Padding
+                (
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column
+                  (
+                    children: 
+                    [
+                        TextField
+                        (
+                          decoration: const InputDecoration
+                          (
+                            labelText: 'Title',
+                          ),
+                          controller: _titleController,
+                        ),
+                      const SizedBox(height: 10,),
+                      const ImageInput()
+                    ],
+                  ),
+                ),
               )
             )
           ],
